@@ -11,13 +11,6 @@ export default function App() {
     return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
   const [showSettings, setShowSettings] = useState(false);
-  const [autoCloak, setAutoCloak] = useState(() => {
-    return localStorage.getItem('autoCloak') === 'true';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('autoCloak', autoCloak);
-  }, [autoCloak]);
 
   const cloak = () => {
     const url = window.location.href;
@@ -148,19 +141,6 @@ export default function App() {
                     className={`w-12 h-6 rounded-full transition-colors relative ${isDarkMode ? 'bg-primary' : 'bg-gray-300'}`}
                   >
                     <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${isDarkMode ? 'left-7' : 'left-1'}`} />
-                  </button>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold">Auto-Cloak on Entry</p>
-                    <p className="text-sm text-[var(--text-muted)]">Automatically open in about:blank tab</p>
-                  </div>
-                  <button
-                    onClick={() => setAutoCloak(!autoCloak)}
-                    className={`w-12 h-6 rounded-full transition-colors relative ${autoCloak ? 'bg-primary' : 'bg-gray-300'}`}
-                  >
-                    <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${autoCloak ? 'left-7' : 'left-1'}`} />
                   </button>
                 </div>
 
