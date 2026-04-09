@@ -305,15 +305,6 @@ export default function App() {
             © 2026 Shrcade • All games unblocked and free to play.
           </p>
           <div className="flex gap-8">
-            {['Twitter', 'Discord', 'Github'].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors"
-              >
-                {link}
-              </a>
-            ))}
           </div>
         </div>
       </footer>

@@ -26,12 +26,5 @@
     "description": "Wacky physics basketball with unpredictable controls and fun gameplay.",
     "url": "https://ubg98.github.io/BasketRandom/index.html",
     "thumbnail": "https://imgs.crazygames.com/basket-random_16x9/20240617090207/basket-random_16x9-cover?metadata=none&quality=100&width=1200&height=630&fit=crop"
-  },
-  {
-    "id": "happy-wheels",
-    "title": "Happy Wheels",
-    "description": "The classic physics-based obstacle course game. Watch your step!",
-    "url": "https://ubg98.github.io/HappyWheels/index.html",
-    "thumbnail": "https://media.indiedb.com/images/games/1/71/70609/happy-wheels.png"
   }
 ]
