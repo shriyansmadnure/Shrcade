@@ -1,0 +1,37 @@
+[
+  {
+    "id": "tennis-1on1",
+    "title": "1 On 1 Tennis",
+    "description": "A fast-paced tennis game. Challenge the AI or a friend in this classic arcade sports game.",
+    "url": "https://script.google.com/macros/s/AKfycbwq66mQrL2jfU72rfIYu7h31dGJbSmmvbbkfEF21eOb0WX2UjJyZJq7QHiGEmAMBW2-rQ/exec",
+    "thumbnail": "https://freetennis.org/images/tennis-game-card.png"
+  },
+  {
+    "id": "boxing-random",
+    "title": "Boxing Random",
+    "description": "A fun physics-based boxing game for one or two players.",
+    "url": "https://ubg98.github.io/BoxingRandom/index.html",
+    "thumbnail": "https://imgs.crazygames.com/games/boxing-random/cover-1622139160089.jpeg?metadata=none&quality=100&width=1200&height=630&fit=crop"
+  },
+  {
+    "id": "monkey-mart",
+    "title": "Monkey Mart",
+    "description": "Manage your own supermarket and grow your business in this idle management game.",
+    "url": "https://ubg98.github.io/MonkeyMart/index.html",
+    "thumbnail": "https://i.ytimg.com/vi/KsyQBXdkAuM/maxresdefault.jpg"
+  },
+  {
+    "id": "basket-random",
+    "title": "Basket Random",
+    "description": "Wacky physics basketball with unpredictable controls and fun gameplay.",
+    "url": "https://ubg98.github.io/BasketRandom/index.html",
+    "thumbnail": "https://imgs.crazygames.com/basket-random_16x9/20240617090207/basket-random_16x9-cover?metadata=none&quality=100&width=1200&height=630&fit=crop"
+  },
+  {
+    "id": "happy-wheels",
+    "title": "Happy Wheels",
+    "description": "The classic physics-based obstacle course game. Watch your step!",
+    "url": "https://ubg98.github.io/HappyWheels/index.html",
+    "thumbnail": "https://media.indiedb.com/images/games/1/71/70609/happy-wheels.png"
+  }
+]
