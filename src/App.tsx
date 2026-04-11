@@ -11,6 +11,32 @@ export default function App() {
     return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
   const [showSettings, setShowSettings] = useState(false);
+  const [autoCloak, setAutoCloak] = useState(() => {
+    return localStorage.getItem('autoCloak') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('autoCloak', autoCloak);
+  }, [autoCloak]);
+
+  const cloak = () => {
+    const url = window.location.href;
+    const win = window.open('about:blank', '_blank');
+    if (!win) {
+      alert('Please allow popups for cloaking to work!');
+      return;
+    }
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    const iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.margin = '0';
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
+    window.location.replace('https://google.com');
+  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -122,6 +148,29 @@ export default function App() {
                     className={`w-12 h-6 rounded-full transition-colors relative ${isDarkMode ? 'bg-primary' : 'bg-gray-300'}`}
                   >
                     <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${isDarkMode ? 'left-7' : 'left-1'}`} />
+                  </button>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold">Auto-Cloak on Entry</p>
+                    <p className="text-sm text-[var(--text-muted)]">Automatically open in about:blank tab</p>
+                  </div>
+                  <button
+                    onClick={() => setAutoCloak(!autoCloak)}
+                    className={`w-12 h-6 rounded-full transition-colors relative ${autoCloak ? 'bg-primary' : 'bg-gray-300'}`}
+                  >
+                    <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${autoCloak ? 'left-7' : 'left-1'}`} />
+                  </button>
+                </div>
+
+                <div className="pt-4 border-t border-[var(--border-color)]">
+                  <button
+                    onClick={cloak}
+                    className="w-full py-2 bg-primary text-white rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Cloak Now
                   </button>
                 </div>
                 
