@@ -14,6 +14,33 @@ export default function App() {
   const [autoCloak, setAutoCloak] = useState(() => {
     return localStorage.getItem('autoCloak') === 'true';
   });
+  const [tabMask, setTabMask] = useState(() => {
+    return localStorage.getItem('tabMask') || 'default';
+  });
+
+  const masks = {
+    default: { title: 'Shrcade | Unblocked Games', icon: '/favicon.ico' },
+    classroom: { title: 'Classes', icon: 'https://ssl.gstatic.com/classroom/favicon.png' },
+    drive: { title: 'My Drive - Google Drive', icon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png' },
+    docs: { title: 'Google Docs', icon: 'https://ssl.gstatic.com/docs/documents/images/favicon_v4.ico' },
+    canvas: { title: 'Dashboard', icon: 'https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico' },
+    khan: { title: 'Khan Academy | Free Online Courses', icon: 'https://www.khanacademy.org/favicon.ico' }
+  };
+
+  useEffect(() => {
+    const mask = masks[tabMask as keyof typeof masks] || masks.default;
+    document.title = mask.title;
+    
+    let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    link.href = mask.icon;
+    
+    localStorage.setItem('tabMask', tabMask);
+  }, [tabMask]);
 
   useEffect(() => {
     localStorage.setItem('autoCloak', autoCloak);
@@ -149,6 +176,23 @@ export default function App() {
                   >
                     <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${isDarkMode ? 'left-7' : 'left-1'}`} />
                   </button>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="font-semibold">Tab Masking</p>
+                  <p className="text-sm text-[var(--text-muted)] mb-2">Change the tab title and icon to look like an educational site</p>
+                  <select 
+                    value={tabMask}
+                    onChange={(e) => setTabMask(e.target.value)}
+                    className="w-full modern-input px-4 py-2 bg-[var(--bg-main)] cursor-pointer"
+                  >
+                    <option value="default">Default (Shrcade)</option>
+                    <option value="classroom">Google Classroom</option>
+                    <option value="drive">Google Drive</option>
+                    <option value="docs">Google Docs</option>
+                    <option value="canvas">Canvas</option>
+                    <option value="khan">Khan Academy</option>
+                  </select>
                 </div>
 
                 <div className="flex items-center justify-between">
