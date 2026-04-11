@@ -12,25 +12,6 @@ export default function App() {
   });
   const [showSettings, setShowSettings] = useState(false);
 
-  const cloak = () => {
-    const url = window.location.href;
-    const win = window.open('about:blank', '_blank');
-    if (!win) {
-      alert('Please allow popups for cloaking to work!');
-      return;
-    }
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    const iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    iframe.src = url;
-    win.document.body.appendChild(iframe);
-    window.location.replace('https://google.com');
-  };
-
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -141,16 +122,6 @@ export default function App() {
                     className={`w-12 h-6 rounded-full transition-colors relative ${isDarkMode ? 'bg-primary' : 'bg-gray-300'}`}
                   >
                     <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${isDarkMode ? 'left-7' : 'left-1'}`} />
-                  </button>
-                </div>
-
-                <div className="pt-4 border-t border-[var(--border-color)]">
-                  <button
-                    onClick={cloak}
-                    className="w-full py-2 bg-primary text-white rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Cloak Now
                   </button>
                 </div>
                 
